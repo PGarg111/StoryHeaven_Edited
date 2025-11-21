@@ -71,6 +71,7 @@
                     function toggleTheme() {
                         document.body.classList.toggle('dark-mode');
                     }
+                    
                 </script>
             </div>
 
@@ -92,6 +93,10 @@
 
 
     <main id="content" class="book"></main>
+    <div id="nav-buttons" style="margin-top: 20px; display: none;">
+        <button id="prev-btn">Previous</button>
+        <button id="next-btn">Next</button>
+    </div>
 
     <script>
         async function loadBook() {
@@ -104,6 +109,8 @@
             const content = document.getElementById('content');
 
             book.sections.forEach(sec => {
+                sectionOrder.push(sec.id);
+
                 const btn = document.createElement('button');
                 btn.textContent = sec.id;
                 btn.onclick = () => showSection(sec.id);
@@ -119,18 +126,52 @@
                     div.appendChild(el);
                 });
 
-                
-
                 content.appendChild(div);
             });
+
+
+            showSection(sectionOrder[0]);
+
+            document.getElementById("nav-buttons").style.display = "block";
         }
 
+        const sectionOrder = [];   
+        let currentIndex = 0; 
+
         function showSection(id) {
+            
             document.querySelectorAll('.chapter').forEach(c => c.classList.remove('active'));
             document.getElementById(id).classList.add('active');
+
+            currentIndex = sectionOrder.indexOf(id);
+
+            updateButtons();
+            window.scrollTo({ top: 0, behavior: "auto" });
+        }
+
+        function updateButtons() {
+            document.getElementById("prev-btn").disabled = currentIndex === 0;
+            document.getElementById("next-btn").disabled = currentIndex === sectionOrder.length - 1;
         }
 
         loadBook();
+
+        document.getElementById("next-btn").onclick = () => {
+            if (currentIndex < sectionOrder.length - 1) {
+                currentIndex++;
+                showSection(sectionOrder[currentIndex]);
+            }
+        };
+
+        document.getElementById("prev-btn").onclick = () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+                showSection(sectionOrder[currentIndex]);
+            }
+        };
+
+        
+
     </script>
 </body>
 

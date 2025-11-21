@@ -297,6 +297,13 @@ button {
     border-radius: 5px; 
     background-color: white;
     border-color: white;
-    
+    transition: 
+        transform 0.3s cubic-bezier(.25, .46, .45, .94),
+        box-shadow 0.3s cubic-bezier(.25, .46, .45, .94);
 
+}
+
+button:hover{
+    transform: scale(1.05);   
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.414);
 }
