@@ -226,10 +226,6 @@ a:focus,
 }
 
 
-
-
-
-
 .book-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -247,6 +243,11 @@ a:focus,
   object-fit: cover;
   display: block;
   border-radius: 15px;
+}
+
+.book-image:hover{
+    transform: scale(1.05);
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.414);
 }
 
 @media (max-width: 1024px) {
