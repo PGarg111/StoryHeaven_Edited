@@ -247,40 +247,17 @@ table img {
     display: block;
 }
 
-/* td {
-    vertical-align: top;
-    height: 320px;
-    width: 200px;
-    text-align: center;
-}
-
-td img {
-    height: 300px;
-    width: auto;
-    display: block;
-    margin: 0 auto;
-}
-
-table {
-    width: 100%;
-    table-layout: fixed;
-    border-collapse: collapse;
-} */
 
 
 .book-grid {
   display: grid;
   grid-template-columns: 300px repeat(5, 1fr);
-  grid-template-rows: repeat(2, auto);
   gap: 15px; 
   width: 100%;
 }
 
-
-
 .book-item figure {
   margin: 0;
-
 }
 
 .book-item img {
@@ -289,6 +266,18 @@ table {
   object-fit: cover;
   display: block;
   border-radius: 15px;
+}
+
+@media (max-width: 1024px) {
+  .book-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .book-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .header {
