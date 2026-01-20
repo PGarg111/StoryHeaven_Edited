@@ -25,73 +25,68 @@
 
     <h1 class="header">Horror/Thriller Books</h1>
     <div>
-      <button id="play-btn">Play Music</button>
-      <button id="pause-btn">Pause Music</button>
+        <button id="play-btn">Play Music</button>
+        <button id="pause-btn">Pause Music</button>
 
-      <audio id="bg-music"
-        src="30 Minutes of Beautiful Romantic Music_ Guitar Music, Violin Music, Cello Music, Piano Music ★74 [wqHHRcuJ3OU].mp3"
-        loop style="display: none;">
-      </audio>
+        <audio id="bg-music"
+            src="30 Minutes of Beautiful Romantic Music_ Guitar Music, Violin Music, Cello Music, Piano Music ★74 [wqHHRcuJ3OU].mp3"
+            loop style="display: none;">
+        </audio>
 
-      <script>
-        const music = document.getElementById('bg-music');
-        const playBtn = document.getElementById('play-btn');
-        const pauseBtn = document.getElementById('pause-btn');
+        <script>
+            const music = document.getElementById('bg-music');
+            const playBtn = document.getElementById('play-btn');
+            const pauseBtn = document.getElementById('pause-btn');
 
-        music.volume = 0.5;
+            music.volume = 0.5;
 
-        playBtn.addEventListener('click', () => {
-          music.play();
-        });
+            playBtn.addEventListener('click', () => {
+                music.play();
+            });
 
-        pauseBtn.addEventListener('click', () => {
-          music.pause();
-        });
-      </script>
+            pauseBtn.addEventListener('click', () => {
+                music.pause();
+            });
+        </script>
     </div>
     <div>
         <div class="back-link">
             <a href="index.html">← Back</a>
         </div>
         <h2>Good Girl's Guide to Murder Triology by Holly Jackson</h2>
-        <table>
-            <tbody>
-                <tr>
-                    <td>
-                        <figure>
-                            <a href="page-not-found.html" target="_blank">
-                                <img id="picture-1" class="picture-1"
-                                    src="https://m.media-amazon.com/images/I/81x-tjdbZgL._UF1000,1000_QL80_.jpg"
-                                    alt="Good Girl's Guide to Murder">
-                            </a>
-                            <p><strong>Good Girl's Guide to Murder</strong></p>
-                        </figure>
-                    </td>
-                    <td>
-                        <figure>
-                            <a href="page-not-found.html" target="_blank">
-                                <img id="picture-1" class="picture-1"
-                                    src="https://m.media-amazon.com/images/I/81rYEmyEyxL._UF1000,1000_QL80_.jpg"
-                                    alt="Good Girl's Guide to Murder">
-                            </a>
-                            <p><strong>Good Girl, Bad Blood</strong></p>
-                        </figure>
-                    </td>
-                    <td>
-                        <figure>
-                            <a href="page-not-found.html" target="_blank">
-                                <img id="picture-1" class="picture-1"
-                                    src="https://m.media-amazon.com/images/I/81IvTYROHWL._UF1000,1000_QL80_.jpg"
-                                    alt="Good Girl's Guide to Murder">
-                            </a>
-                            <p><strong>As Good As Dead</strong></p>
-                        </figure>
-                    </td>
-                </tr>
-              
-
-            </tbody>
-        </table>
+        <div class="book-grid">
+            <div class="book-item">
+                <figure>
+                    <a href="page-not-found.html" target="_blank">
+                        <img class="book-image"
+                            src="https://m.media-amazon.com/images/I/81x-tjdbZgL._UF1000,1000_QL80_.jpg"
+                            alt="Good Girl's Guide to Murder">
+                    </a>
+                    <p><strong>Good Girl's Guide to Murder</strong></p>
+                </figure>
+            </div>
+            <div class="book-item">
+                <figure>
+                    <a href="page-not-found.html" target="_blank">
+                        <img class="book-image"
+                            src="https://m.media-amazon.com/images/I/81rYEmyEyxL._UF1000,1000_QL80_.jpg"
+                            alt="Good Girl's Guide to Murder">
+                    </a>
+                    <p><strong>Good Girl, Bad Blood</strong></p>
+                </figure>
+            </div>
+            <div class="book-item">
+                <figure>
+                    <a href="page-not-found.html" target="_blank">
+                        <img class="book-image"
+                            src="https://m.media-amazon.com/images/I/81IvTYROHWL._UF1000,1000_QL80_.jpg"
+                            alt="Good Girl's Guide to Murder">
+                    </a>
+                    <p><strong>As Good As Dead</strong></p>
+                </figure>
+            </div>
+        </div>
+        
     </div>
 
 </body>
