@@ -211,6 +211,7 @@ a:focus,
     text-decoration: none;
     padding: 14px 20px;
     font-size: 14px;
+    backdrop-filter: blur(-10px);
 }
 
 .topbar:hover{
@@ -224,28 +225,8 @@ a:focus,
     
 }
 
-table img {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0, 3);
-    transform: scale(1.05);
-    transition: transform 0.3s ease;
-    width: 200px;
-    height: 300px;
-    object-fit: cover;
-    border-radius: 8px;
-    display: block;
-    border: 2px solid black;
-}
 
-/* .picture-2 {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0, 3);
-    transform: scale(1.05);
-    transition: transform 0.3s ease;
-    width: 400px;
-    height: 600px;
-    object-fit: cover;
-    border-radius: 8px;
-    display: block;
-} */
+
 
 
 
