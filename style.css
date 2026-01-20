@@ -247,7 +247,7 @@ table img {
     display: block;
 }
 
-td {
+/* td {
     vertical-align: top;
     height: 320px;
     width: 200px;
@@ -265,10 +265,31 @@ table {
     width: 100%;
     table-layout: fixed;
     border-collapse: collapse;
+} */
+
+
+.book-grid {
+  display: grid;
+  grid-template-columns: 300px repeat(5, 1fr);
+  grid-template-rows: repeat(2, auto);
+  gap: 15px; 
+  width: 100%;
 }
 
 
 
+.book-item figure {
+  margin: 0;
+
+}
+
+.book-item img {
+  width: 100%;
+  height: 400px; 
+  object-fit: cover;
+  display: block;
+  border-radius: 15px;
+}
 
 .header {
     margin-top: 60px;
