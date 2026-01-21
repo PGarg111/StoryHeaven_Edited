@@ -32,7 +32,7 @@
     <h1>Digital Library</h1>
     <p>Welcome to your free digital library! In this library you will find all the new and popular books for middle and
       high schoolers. The website is divided using the different genres. All you have to do is click on the genre you
-      want to read and then navigate through the page looking for which book you want to read. Or search for your book through the search bar on the home page! Once you find a book you
+      want to read and then navigate through the page looking for which book you want to read. Or search for your book through the search bar on the home page! Use the filters to find what genre books you are interested in. Once you find a book you
       want to read, click on the book cover and it will take you to a page where you can read the book. Enjoy your stay!
     </p>
     <div>
@@ -326,53 +326,53 @@
       },
 
       {
-        title: "The War That Saved My Life", author: "Kimberly Brubaker Bradley", genre: "historical",
+        title: "The War That Saved My Life", author: "Kimberly Brubaker Bradley", genre: "hist-fic",
         cover: "https://m.media-amazon.com/images/I/81IhHL17BhL._UF1000,1000_QL80_.jpg", link: "page-not-found.html"
       },
       {
-        title: "The Wednesday Wards", author: "Gary D. Schmidt", genre: "historical",
+        title: "The Wednesday Wards", author: "Gary D. Schmidt", genre: "hist-fic",
         cover: "https://m.media-amazon.com/images/I/71rCChFIhXL._UF1000,1000_QL80_.jpg", link: "page-not-found.html"
       },
       {
-        title: "Breaking Stalin's Nose", author: "Eugene Yelchin", genre: "historical",
+        title: "Breaking Stalin's Nose", author: "Eugene Yelchin", genre: "hist-fic",
         cover: "https://m.media-amazon.com/images/I/91uErltZeVL._UF1000,1000_QL80_.jpg", link: "page-not-found.html"
       },
       {
-        title: "The Downstairs Girls", author: "Stacy Lee", genre: "historical",
+        title: "The Downstairs Girls", author: "Stacy Lee", genre: "hist-fic",
         cover: "https://m.media-amazon.com/images/I/819vpe55YVL._UF1000,1000_QL80_.jpg", link: "page-not-found.html"
       },
       {
-        title: "We Are Not Free", author: "Traci Chee", genre: "historical",
+        title: "We Are Not Free", author: "Traci Chee", genre: "hist-fic",
         cover: "https://m.media-amazon.com/images/I/71x68dlkkuL._UF1000,1000_QL80_.jpg", link: "page-not-found.html"
       },
       {
-        title: "Code Name Verity", author: "Elizabeth Wein", genre: "historical",
+        title: "Code Name Verity", author: "Elizabeth Wein", genre: "hist-fic",
         cover: "https://m.media-amazon.com/images/I/81k4Y1KtSmL._UF1000,1000_QL80_.jpg", link: "page-not-found.html"
       },
 
     
       {
-        title: "The 57 Bus", author: "Dashka Slater", genre: "non-fiction",
+        title: "The 57 Bus", author: "Dashka Slater", genre: "non-fic",
         cover: "https://m.media-amazon.com/images/I/81ygmVMug9L._UF1000,1000_QL80_.jpg", link: "page-not-found.html"
       },
       {
-        title: "I Will Always Write Back", author: "Caitlin Alifirenka & Martin Ganda", genre: "non-fiction",
+        title: "I Will Always Write Back", author: "Caitlin Alifirenka & Martin Ganda", genre: "non-fic",
         cover: "https://m.media-amazon.com/images/I/71XqP2ndvDL._UF1000,1000_QL80_.jpg", link: "page-not-found.html"
       },
       {
-        title: "Sapiens: A Brief History of Humankind", author: "Yuval Noah Harari", genre: "non-fiction",
+        title: "Sapiens: A Brief History of Humankind", author: "Yuval Noah Harari", genre: "non-fic",
         cover: "https://m.media-amazon.com/images/I/713jIoMO3UL._UF1000,1000_QL80_.jpg", link: "page-not-found.html"
       },
       {
-        title: "Hidden Figures", author: "Margot Lee Shetterly", genre: "non-fiction",
+        title: "Hidden Figures", author: "Margot Lee Shetterly", genre: "non-fic",
         cover: "https://upload.wikimedia.org/wikipedia/en/4/4f/The_official_poster_for_the_film_Hidden_Figures%2C_2016.jpg", link: "page-not-found.html"
       },
       {
-        title: "Just Mercy: A Story of Justice", author: "Bryan Stevenson", genre: "non-fiction",
+        title: "Just Mercy: A Story of Justice", author: "Bryan Stevenson", genre: "non-fic",
         cover: "https://m.media-amazon.com/images/I/81Czh6XQdTL._UF1000,1000_QL80_.jpg", link: "page-not-found.html"
       },
       {
-        title: "The Family Romanov: Murder, Rebellion, and the Fall of the Imperial Russia", author: "Candace Fleming", genre: "non-fiction",
+        title: "The Family Romanov: Murder, Rebellion, and the Fall of the Imperial Russia", author: "Candace Fleming", genre: "non-fic",
         cover: "https://m.media-amazon.com/images/I/91+gy3By6gL._UF1000,1000_QL80_.jpg", link: "page-not-found.html"
       },
       
@@ -394,9 +394,9 @@
       filterBooks();
     });
 
-    document.querySelectorAll('.filter-btn').forEach(btn => {
+    document.querySelectorAll('.filterbutton').forEach(btn => {
       btn.addEventListener('click', (e) => {
-        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.filterbutton').forEach(b => b.classList.remove('active'));
         e.target.classList.add('active');
         currentGenre = e.target.dataset.genre;
         filterBooks();
