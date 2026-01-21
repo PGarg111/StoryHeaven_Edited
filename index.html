@@ -44,6 +44,26 @@
         loop style="display: none;">
       </audio>
 
+      <div class="search">
+        <div class="search-box">
+          <input type="text" id="searchInput" placeholder="Search by title, author, or genre..." autocomplete="off">
+        </div>
+
+        <div class="filterbuttons">
+          <button class="filterbutton active" data-genre="all">All</button>
+          <button class="filterbutton" data-genre="fantasy">Fantasy</button>
+          <button class="filterbutton" data-genre="mystery">Mystery</button>
+          <button class="filterbutton" data-genre="sci-fi">Sci-Fi</button>
+          <button class="filterbutton" data-genre="real">Realistic Fiction</button>
+          <button class="filterbutton" data-genre="horror">Horror/Thriller</button>
+          <button class="filterbutton" data-genre="romance">Romance</button>
+          <button class="filterbutton" data-genre="hist-fic">Historical Fiction</button>
+          <button class="filterbutton" data-genre="non-fic">Non-Fiction</button>
+        </div>
+
+        <div class="results" id="resultsInfo"></div>
+      </div>
+
       <script>
         const music = document.getElementById('bg-music');
         const playBtn = document.getElementById('play-btn');
@@ -62,17 +82,17 @@
     </div>
 
     <h2>Featured Books</h2>
-    <div class="book-grid">
-      <div class="book-item">
+    <div class="book-grid" id="bookGrid">
+      <div class="book-item" data-title="percy jackson and the lightning thief" data-author="rick riordan"
+        data-genre="fantasy">
         <figure>
           <a href="pcj-book-1.html" target="_blank">
-            <img class="book-image" 
-              src="https://images.booksense.com/images/477/051/9781368051477.jpg" alt="PCJ-Book1">
+            <img class="book-image" src="https://images.booksense.com/images/477/051/9781368051477.jpg" alt="PCJ-Book1">
           </a>
         </figure>
       </div>
 
-      <div class="book-item">
+      <div class="book-item" data-title="hunger games" data-author="suzanne collins" data-genre="sci-fi">
         <figure>
           <a href="page-not-found.html" target="_blank">
             <img class="book-image2" src="https://m.media-amazon.com/images/I/61I24wOsn8L._UF1000,1000_QL80_.jpg"
@@ -81,7 +101,7 @@
         </figure>
       </div>
 
-      <div class="book-item">
+      <div class="book-item" data-title="a pho love story" data-author="loan le" data-genre="romance">
         <figure>
           <a href="pho.html" target="_blank">
             <img class="book-image" src="https://m.media-amazon.com/images/I/81qtvOG+7+L._UF1000,1000_QL80_.jpg"
@@ -90,7 +110,7 @@
         </figure>
       </div>
 
-      <div class="book-item">
+      <div class="book-item" data-title="foolish hearts" data-author="emma mills" data-genre="romance">
         <figure>
           <a href="foolish-hearts-1.html" target="_blank">
             <img class="book-image" src="https://m.media-amazon.com/images/I/81c40GumSkL._UF1000,1000_QL80_.jpg"
@@ -99,7 +119,8 @@
         </figure>
       </div>
 
-      <div class="book-item">
+      <div class="book-item" data-title="the war that saved my life" data-author="kimberly brubaker bradley"
+        data-genre="hist-fic">
         <figure>
           <a href="page-not-found.html" target="_blank">
             <img class="book-image2" src="https://m.media-amazon.com/images/I/81IhHL17BhL._UF1000,1000_QL80_.jpg"
@@ -108,7 +129,7 @@
         </figure>
       </div>
 
-      <div class="book-item">
+      <div class="book-item" data-title="the downstairs girl" data-author="stacey lee" data-genre="historical">
         <figure>
           <a href="downstairs-girl.html" target="_blank">
             <img class="book-image" src="https://m.media-amazon.com/images/I/819vpe55YVL._UF1000,1000_QL80_.jpg"
@@ -117,7 +138,7 @@
         </figure>
       </div>
 
-      <div class="book-item">
+      <div class="book-item" data-title="the 57 bus" data-author="dashka slater" data-genre="non-fiction">
         <figure>
           <a href="page-not-found.html" target="_blank">
             <img class="book-image2" src="https://m.media-amazon.com/images/I/81ygmVMug9L._UF1000,1000_QL80_.jpg"
@@ -126,7 +147,7 @@
         </figure>
       </div>
 
-      <div class="book-item">
+      <div class="book-item" data-title="a good girl guide to murder" data-author="holly jackson" data-genre="horror">
         <figure>
           <a href="page-not-found.html" target="_blank">
             <img class="book-image2" src="https://m.media-amazon.com/images/I/81x-tjdbZgL._UF1000,1000_QL80_.jpg"
@@ -135,7 +156,7 @@
         </figure>
       </div>
 
-      <div class="book-item">
+      <div class="book-item" data-title="city spies" data-author="james ponti" data-genre="mystery">
         <figure>
           <a href="city-spies-1.html" target="_blank">
             <img class="book-image" src="https://highfivebooks.org/cdn/shop/files/9781534414921.jpg?v=1718334342"
@@ -145,8 +166,197 @@
       </div>
     </div>
 
+    <div class="no-results" id="noResults">No books found matching your result</div>
+
   </div>
-  </div>
+  <script>
+    const allBooks = [
+      {
+        title: "Percy Jackson & The Lightning Thief", author: "Rick Riordan", genre: "fantasy",
+        cover: "https://images.booksense.com/images/477/051/9781368051477.jpg", link: "pcj-book-1.html"
+      },
+      {
+        title: "Percy Jackson & The Sea of Monsters", author: "Rick Riordan", genre: "fantasy",
+        cover: "https://boundbookstn.com/cdn/shop/products/sea-of-monsters-the-percy-jackson-and-the-olympians-book-2.jpg?v=1671142263", link: "page-not-found.html"
+      },
+      {
+        title: "Percy Jackson & The Titan's Curse", author: "Rick Riordan", genre: "fantasy",
+        cover: "https://prodimage.images-bn.com/pimages/9781368051484_p0_v3_s1200x630.jpg", link: "page-not-found.html"
+      },
+      {
+        title: "Percy Jackson & The Battle of the Labyrinth", author: "Rick Riordan", genre: "fantasy",
+        cover: "https://cdn.shoplightspeed.com/shops/611345/files/41554829/disney-hyperion-percy-jackson-and-the-olympians-bo.jpg", link: "page-not-found.html"
+      },
+      {
+        title: "Percy Jackson & The Last Olympian", author: "Rick Riordan", genre: "fantasy",
+        cover: "https://images.penguinrandomhouse.com/cover/9781368051453", link: "page-not-found.html"
+      },
+      {
+        title: "Percy Jackson & The Chalice of the Gods", author: "Rick Riordan", genre: "fantasy",
+        cover: "https://images.penguinrandomhouse.com/cover/9781368098267", link: "page-not-found.html"
+      },
+      {
+        title: "Percy Jackson & The Wrath of the Triple Goddess", author: "Rick Riordan", genre: "fantasy",
+        cover: "https://books.disney.com/content/uploads/2024/01/9781368107631.jpg", link: "page-not-found.html"
+      },
+
+      
+      {
+        title: "A Good Girl's Guide to Murder", author: "Holly Jackson", genre: "horror",
+        cover: "https://m.media-amazon.com/images/I/81x-tjdbZgL._UF1000,1000_QL80_.jpg", link: "page-not-found.html"
+      },
+      {
+        title: "Good Girl, Bad Blood", author: "Holly Jackson", genre: "horror",
+        cover: "https://m.media-amazon.com/images/I/81rYEmyEyxL._UF1000,1000_QL80_.jpg", link: "page-not-found.html"
+      },
+      {
+        title: "As Good As Dead", author: "Holly Jackson", genre: "horror",
+        cover: "https://m.media-amazon.com/images/I/81IvTYROHWL._UF1000,1000_QL80_.jpg", link: "page-not-found.html"
+      },
+
+
+      {
+        title: "City Spies", author: "James Ponti", genre: "mystery",
+        cover: "https://highfivebooks.org/cdn/shop/files/9781534414921.jpg?v=1718334342", link: "city-spies-1.html"
+      },
+      {
+        title: "City Spies: Golden Gate", author: "James Ponti", genre: "mystery",
+        cover: "https://m.media-amazon.com/images/I/710SakXJyHL._UF1000,1000_QL80_.jpg", link: "page-not-found.html"
+      },
+      {
+        title: "City Spies: Forbidden City", author: "James Ponti", genre: "mystery",
+        cover: "https://m.media-amazon.com/images/I/81KrF50bDZL._UF1000,1000_QL80_.jpg", link: "page-not-found.html"
+      },
+      {
+        title: "City Spies: City of the Dead", author: "James Ponti", genre: "mystery",
+        cover: "https://m.media-amazon.com/images/I/81bAlkPvjiL._UF1000,1000_QL80_.jpg", link: "page-not-found.html"
+      },
+      {
+        title: "City Spies: Mission Manhattan", author: "James Ponti", genre: "mystery",
+        cover: "https://m.media-amazon.com/images/I/81zFXbWoRNL._UF1000,1000_QL80_.jpg", link: "page-not-found.html"
+      },
+      {
+        title: "City Spies: London Calling", author: "James Ponti", genre: "mystery",
+        cover: "https://m.media-amazon.com/images/I/71X2kyx+c3L._UF1000,1000_QL80_.jpg", link: "page-not-found.html"
+      },
+      {
+        title: "Coming Soon: City Spies: Europe", author: "James Ponti", genre: "mystery",
+        cover: "https://m.media-amazon.com/images/I/71+mdtzQR2L._UF1000,1000_QL80_.jpg", link: "page-not-found.html"
+      },
+
+      
+      {
+        title: "The Hunger Games", author: "Suzanne Collins", genre: "sci-fi",
+        cover: "https://m.media-amazon.com/images/I/61I24wOsn8L._UF1000,1000_QL80_.jpg", link: "page-not-found.html"
+      },
+
+      {
+        title: "A Pho Love Story", author: "Loan Le", genre: "romance",
+        cover: "https://m.media-amazon.com/images/I/81qtvOG+7+L._UF1000,1000_QL80_.jpg", link: "pho.html"
+      },
+      {
+        title: "Foolish Hearts", author: "Emma Mills", genre: "romance",
+        cover: "https://m.media-amazon.com/images/I/81c40GumSkL._UF1000,1000_QL80_.jpg", link: "foolish-hearts-1.html"
+      },
+
+      {
+        title: "The War That Saved My Life", author: "Kimberly Brubaker Bradley", genre: "historical",
+        cover: "https://m.media-amazon.com/images/I/81IhHL17BhL._UF1000,1000_QL80_.jpg", link: "page-not-found.html"
+      },
+      {
+        title: "The Downstairs Girl", author: "Stacey Lee", genre: "historical",
+        cover: "https://m.media-amazon.com/images/I/819vpe55YVL._UF1000,1000_QL80_.jpg", link: "downstairs-girl.html"
+      },
+    
+      {
+        title: "The 57 Bus", author: "Dashka Slater", genre: "non-fiction",
+        cover: "https://m.media-amazon.com/images/I/81ygmVMug9L._UF1000,1000_QL80_.jpg", link: "page-not-found.html"
+      },
+      
+    ];
+
+    let currentGenre = 'all';
+    let currentSearch = '';
+
+    const searchInput = document.getElementById('searchInput');
+    const bookGrid = document.getElementById('bookGrid');
+    const noResults = document.getElementById('noResults');
+    const resultsInfo = document.getElementById('resultsInfo');
+
+    const featuredBooks = document.querySelectorAll('.book-item');
+    let showingAllBooks = false;
+
+    searchInput.addEventListener('input', (e) => {
+      currentSearch = e.target.value.toLowerCase();
+      filterBooks();
+    });
+
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        e.target.classList.add('active');
+        currentGenre = e.target.dataset.genre;
+        filterBooks();
+      });
+    });
+
+    function filterBooks() {
+      if (currentSearch || currentGenre !== 'all') {
+        showingAllBooks = true;
+        displayFilteredBooks();
+      } else {
+        showingAllBooks = false;
+        bookGrid.innerHTML = '';
+        featuredBooks.forEach(book => {
+          bookGrid.appendChild(book.cloneNode(true));
+        });
+        resultsInfo.textContent = '';
+        noResults.classList.remove('visible');
+      }
+    }
+
+    function displayFilteredBooks() {
+      let filtered = allBooks.filter(book => {
+        const genreMatch = currentGenre === 'all' || book.genre === currentGenre;
+
+        const searchMatch = !currentSearch ||
+          book.title.toLowerCase().includes(currentSearch) ||
+          book.author.toLowerCase().includes(currentSearch) ||
+          book.genre.toLowerCase().includes(currentSearch);
+
+        return genreMatch && searchMatch;
+      });
+
+      bookGrid.innerHTML = '';
+
+      if (filtered.length === 0) {
+        noResults.classList.add('visible');
+        resultsInfo.textContent = 'Showing 0 books';
+      } else {
+        noResults.classList.remove('visible');
+
+        filtered.forEach(book => {
+          const bookItem = document.createElement('div');
+          bookItem.className = 'book-item';
+
+          const isAvailable = !book.link.includes('page-not-found');
+          const imageClass = isAvailable ? 'book-image' : 'book-image2';
+
+          bookItem.innerHTML = `
+            <figure>
+              <a href="${book.link}" target="_blank">
+                <img class="${imageClass}" src="${book.cover}" alt="${book.title}">
+              </a>
+            </figure>
+          `;
+
+          bookGrid.appendChild(bookItem);
+        });
+
+        resultsInfo.textContent = `Showing ${filtered.length} book${filtered.length !== 1 ? 's' : ''}`;
+      }
+    }
+  </script>
 </body>
 
 </html>
